@@ -355,12 +355,12 @@ const menus = [
   },
 ];
 
-const input = document.getElementsByClassName("input")[0];
+const input = document.getElementsByClassName("box")[0];
+const listDiv = document.getElementsByClassName("listDiv")[0];
+const list = document.getElementsByClassName("list-group")[0];
 
 const changing = (event) => {
   const value = event.target.value;
-  console.log(value);
-  input.value = "";
   const menuName = menus
     .filter((menu) => {
       const inputName = menuCategories.find(
@@ -373,6 +373,14 @@ const changing = (event) => {
       }
     })
     .map((item) => item.name);
-  console.log(menuName);
+  for (let i = 0; i < menuName.length; i++) {
+    const listItem = document.createElement("li");
+    listItem.classList.add("list");
+    console.log(menuName[i]);
+    listItem.append(menuName[i]);
+    list.append(listItem);
+  }
+  input.value = "";
 };
+
 const valueName = input.addEventListener("change", changing);
