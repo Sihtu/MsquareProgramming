@@ -1,0 +1,12 @@
+body {
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+.input {
+  max-width: 500px;
+  margin-top: 10px;
+}
